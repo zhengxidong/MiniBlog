@@ -1,0 +1,3 @@
+<template name="tempCopyright">
+<view>  © 2019 itellyou 博客 itellyou.site      </view>
+</template>

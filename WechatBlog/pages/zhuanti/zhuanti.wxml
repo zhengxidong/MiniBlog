@@ -1,0 +1,71 @@
+<import src="../../templates/common-list.wxml" />
+<import src="../../templates/copyright.wxml" />
+
+<loading wx:if="{{showLoading}}">
+加载中...
+</loading>
+<!-- 右上角音乐件 -->
+  <view wx:if="{{music_url}}">
+    <!-- 初始化播放音乐 -->
+    <view wx:if="{{initPlayingMusic}}">
+      <view class="background_music" bindtap="play">
+        <image src="/images/music/music_icon.png" class="musicImg music_icon" />
+        <image src="/images/music/music_play.png" class="music_play initImg" />
+      </view>
+    </view>
+    <view wx:else>
+      <view class="background_music"  bindtap="play">
+        <!-- 继续播放 id="{{isPlayingMusic}}"-->
+        <view wx:if="{{!isPlayingMusic}}">
+          <image src="/images/music/music_icon.png" class="musicImg music_icon" />
+          <image src="/images/music/music_play.png" class="music_play pauseImg" />
+        </view>
+        <!-- 停止播放 -->
+        <view wx:else>
+          <image src="/images/music/music_icon.png" class="musicImg" />
+          <image src="/images/music/music_play.png" class="music_play playImg" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+<view class="contain">
+ <!-- 导航栏 -->
+ <scroll-view class="tab" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
+ <block wx:for="{{menuList}}" wx:key="index">
+  <view class="tab-item {{currentTab == index ? 'active' : ''}}" data-current="{{index}}" data-cateid="{{item.id}}" bindtap='clickMenu'>{{item.name}}</view>
+  <!-- <view class="tab-item {{currentTab == item.id ? 'active' : ''}}" data-current="{{item.id}}" bindtap='clickMenu'>{{item.name}}</view> -->
+ </block>
+ </scroll-view>
+ <!-- 页面 -->
+ <swiper class="content" style='height: {{height}}px' duration="500" current="{{currentTab}}" bindchange="changeContent">
+ <swiper-item class="content-item" wx:for="{{menuList}}" wx:key="index">
+ 
+  <!-- 加载图文列表 -->
+  <view class="container">
+    <view class="index-container">
+      <template is="tempCommonList" data="{{postsList}}" />
+      <view class="loadingmore" style="display:{{floatDisplay}}">
+        <view class="no-more" hidden="{{!isLastPage}}">- 无更多文章 -</view>
+      </view>
+      <view class="copyright" style="display:{{floatDisplay}}">
+        <template is="tempCopyright" />
+      </view>
+    </view>
+  </view>
+  <!-- <scroll-view scroll-y="true" style="height:100%">
+  <view class="container">
+    <view class="index-container">
+      <template is="tempCommonList" data="{{postsList}}" />
+      <view class="loadingmore" style="display:{{floatDisplay}}">
+        <view class="no-more" hidden="{{!isLastPage}}">- 无更多文章 -</view>
+      </view>
+      <view class="copyright" style="display:{{floatDisplay}}">
+        <template is="tempCopyright" />
+      </view>
+    </view>
+  </view>
+  </scroll-view> -->
+ </swiper-item>
+ </swiper>
+</view>

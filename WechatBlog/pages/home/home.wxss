@@ -1,0 +1,326 @@
+/**选项卡**/
+.swiper-tab{
+	width: 100%;
+	border-bottom: 1rpx solid #efefef;
+	text-align: center;
+	line-height: 80rpx;
+  position: fixed;
+  z-index: 10001;
+  background-color: #fff;
+}
+.swiper-tab-list{  
+  font-size: 30rpx;
+  display: inline-block;
+	width: 33.33%;
+	color: #777777;
+}
+.on{ 
+  color: #CD96CD;
+	border-bottom: 1rpx solid #CD96CD;
+}
+ 
+.swiper-box{ 
+  display: block; 
+  height: 100%; 
+  width: 100%; 
+  overflow: hidden; 
+}
+.swiper-box view{
+	text-align: center;
+  margin-top: 20rpx;
+}
+/* .swiper-item-list{
+  margin-top: 90rpx;
+} */
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+/* 右上角音乐件 */
+.background_music{
+  position: fixed;
+  top: 20rpx;
+  right: 10rpx;
+  z-index: 10001;
+  width: 100rpx;
+}
+
+.musicImg {
+  width: 60rpx;
+  height: 60rpx;
+}
+.music_icon {
+  animation: musicRotate 3s linear infinite;
+}
+.music_play {
+  width: 28rpx;
+  height: 60rpx;
+  margin-left: -5px;
+  transform-origin: top;
+  -webkit-transform: rotate(20deg);
+}
+
+.playImg {
+  animation: musicStop 1s linear forwards;
+}
+
+.pauseImg {
+  animation: musicStart 1s linear forwards;
+}
+
+.initImg {
+  animation: musicInit 1s linear forwards;
+}
+
+@-webkit-keyframes musicRotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes musicInit {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(20deg);
+  }
+}
+
+@-webkit-keyframes musicStop {
+  from {
+    -webkit-transform: rotate(20deg); 
+
+  }
+
+  to {
+    -webkit-transform: rotate(0deg); 
+  }
+}
+
+@-webkit-keyframes musicStart {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(20deg);
+  }
+}
+/* end */
+
+/* .music_stop {
+  width: 4em;
+  display: none;
+} */
+
+/* 选项卡下的内容 */
+.top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 80rpx;
+    background-color: #fff;
+    border-bottom: solid 1px #efefef;
+}
+
+.top-item {
+    line-height: 80rpx;
+    flex: 1;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #666;
+    padding: 0 20rpx;
+}
+
+.top-item text {
+    display: inline-block;
+    line-height: 80rpx;
+    flex: 1;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #666;
+    padding: 0 20rpx;
+}
+
+/* .on {
+    border-bottom: solid 1px #CD96CD;
+    
+} */
+
+.box {
+    display: flex;
+    flex-direction: column;
+    width: 690rpx;
+    margin: auto;
+}
+
+.video {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-item {
+    padding: 40rpx 0;
+    border-bottom: solid 1px #efefef;
+}
+.wrapper{
+	    width: 690rpx;
+    height: 400rpx;
+	position: relative;
+}
+.video-video {
+    width: 690rpx;
+    height: 400rpx;
+}
+.video-video2 {
+    width: 690rpx;
+    height: 400rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+.videoPlay{
+	position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+    top: 50%;
+    left: 50%;
+    margin: -30rpx 0 0 -30rpx;
+	z-index: 100;
+}
+
+.video-name {
+    margin-top: 10rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    color: #333;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.video-desc {
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #666;
+    margin-top: 10rpx;
+    /* display: -webkit-box; */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.video-bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.video-btn {
+    margin-top: 20rpx;
+    width: 103rpx;
+    height: 39rpx;
+    border: solid 1px #d2d2d2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-btn image {
+    width: 19rpx;
+    height: 12rpx;
+    margin-right: 10rpx;
+}
+
+.video-btn text {
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #999;
+}
+
+.audio {
+    display: flex;
+    flex-direction: column;
+}
+
+.audio-item {
+    padding: 40rpx 0;
+    border-bottom: solid 1px #efefef;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.audio-left {
+    width: 204rpx;
+    height: 152rpx;
+    position: relative;
+    margin-right: 20rpx;
+}
+
+.audio-audio {
+    width: 204rpx;
+    height: 152rpx;
+}
+
+.audio-status {
+    position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+    top: 50%;
+    left: 50%;
+    margin: -30rpx 0 0 -30rpx;
+}
+
+.audio-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.audio-name {
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    color: #333;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.audio-desc {
+    margin-top: 10rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #666;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.audio-right {
+	width: 30rpx;
+    margin-left: 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+.audio-right image {
+    width: 25rpx;
+    height: 29rpx;
+}

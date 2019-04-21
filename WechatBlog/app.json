@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "pages/zhuanti/zhuanti",
+    "pages/my/my",
+    "pages/test/test",
+    "pages/detail/detail"
+  ],
+  "window":{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#CD96CD",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "ITellYou - Blog",
+    "enablePullDownRefresh": false
+  },
+  "tabBar":{
+    "position": "bottom",
+    "color": "#5f5f5f",
+    "selectedColor":"#CD96CD",
+    "backgroundColor":"#fff",
+    "list":[
+      
+      {
+        "pagePath": "pages/zhuanti/zhuanti",
+        "iconPath": "images/tab/ic_heart_normal.png",
+        "selectedIconPath":"images/tab/ic_heart_select.png",
+        "text":"专题"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/tab/ic_me-normal@2x.png",
+        "selectedIconPath": "images/tab/ic_me_selected@2x.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

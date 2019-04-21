@@ -1,0 +1,150 @@
+.contain{
+ width: 100%;
+ height: 100%;
+}
+.tab{
+ width: 100%;
+ height: 84rpx;
+ position: fixed;
+ top: 0;
+ left: 0;
+ z-index: 100;
+ white-space: nowrap;
+ box-sizing: border-box;
+ overflow: hidden;
+ line-height: 80rpx;
+ /* border-top: 1px solid #fff; */
+ border-bottom:1px solid #efefef;
+
+}
+.tab-item{
+ display: inline-block;
+ width: 20%;
+ /* height: 79rpx; */
+ text-align: center;
+ font-size: 30rpx;
+ color: #8f9193;
+ line-height: 80rpx;
+}
+.active{
+ /* color: #ff500c; */
+ color: #cd96cd;
+ border-bottom:1rpx solid #cd96cd;
+
+ /* height: 96%;
+ border-bottom-color: #ff500c;
+ border-bottom-style: solid;
+  border-bottom-width: 1px; */
+}
+.content{
+ padding-top: 80rpx;
+ box-sizing: border-box;
+ text-align: center;
+ font-size: 14px;
+ height: 100%
+}
+.content-item{
+ overflow-y: scroll;
+ height:100%;
+}
+
+/* 右上角音乐件 */
+ .background_music{
+  position: fixed;
+  top: 100rpx;
+  right: 0rpx;
+  z-index: 10001;
+  /* height: 100rpx; */
+  width: 100rpx;
+  /* background-color: #8f9193;
+  border-radius: 20px;
+  line-height: 50px; */
+}
+
+.musicImg {
+  width: 60rpx;
+  height: 60rpx;
+}
+.music_icon {
+  animation: musicRotate 3s linear infinite;
+}
+.music_play {
+  width: 28rpx;
+  height: 60rpx;
+  margin-left: -5px;
+  transform-origin: top;
+  -webkit-transform: rotate(20deg);
+}
+
+.playImg {
+  animation: musicStop 1s linear forwards;
+}
+
+.pauseImg {
+  animation: musicStart 1s linear forwards;
+}
+
+.initImg {
+  animation: musicInit 1s linear forwards;
+}
+
+@-webkit-keyframes musicRotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes musicInit {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(20deg);
+  }
+}
+
+@-webkit-keyframes musicStop {
+  from {
+    -webkit-transform: rotate(20deg); 
+
+  }
+
+  to {
+    -webkit-transform: rotate(0deg); 
+  }
+}
+
+@-webkit-keyframes musicStart {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(20deg);
+  }
+} 
+/* end */
+
+
+/* 加载文章列表 */
+
+.index-container {
+  margin-top: 15px;
+  background-color: #fff;
+}
+
+
+.copyright {
+  font-size: 26rpx;
+  line-height: 1.2;
+  font-weight: normal;
+  text-align: center;
+  color: #999;
+  margin-top: 20rpx;
+  margin-bottom: 80rpx;
+}
