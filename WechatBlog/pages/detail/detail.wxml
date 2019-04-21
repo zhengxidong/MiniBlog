@@ -6,7 +6,7 @@
     <view class="container">
         <view class="content-article-detail" style="display:{{display}}">
             <view class="entry-title">
-                {{detail.title.rendered}}
+                {{detail.arrticleTitle}}
             </view>
             <view class="entry-date">
                 <image src="../../images/calendar.png" style="height:24rpx;width:24rpx;margin:0;"></image>

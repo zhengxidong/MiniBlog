@@ -1,9 +1,9 @@
 <import src="../../templates/common-list.wxml" />
 <import src="../../templates/copyright.wxml" />
 
-<loading wx:if="{{showLoading}}">
+<!-- <loading wx:if="{{showLoading}}">
 加载中...
-</loading>
+</loading> -->
 <!-- 右上角音乐件 -->
   <view wx:if="{{music_url}}">
     <!-- 初始化播放音乐 -->
@@ -42,6 +42,15 @@
  <swiper-item class="content-item" wx:for="{{menuList}}" wx:key="index">
  
   <!-- 加载图文列表 -->
+  <!-- <view class="container">
+    <view class="index-container">
+      <template is="tempCommonList" data="{{postsList}}" />
+      <view class="copyright" style="display:{{floatDisplay}}">
+        <template is="tempCopyright" />
+      </view>
+    </view>
+  </view> -->
+  <scroll-view scroll-y="true" style="height:100%">
   <view class="container">
     <view class="index-container">
       <template is="tempCommonList" data="{{postsList}}" />
@@ -53,19 +62,7 @@
       </view>
     </view>
   </view>
-  <!-- <scroll-view scroll-y="true" style="height:100%">
-  <view class="container">
-    <view class="index-container">
-      <template is="tempCommonList" data="{{postsList}}" />
-      <view class="loadingmore" style="display:{{floatDisplay}}">
-        <view class="no-more" hidden="{{!isLastPage}}">- 无更多文章 -</view>
-      </view>
-      <view class="copyright" style="display:{{floatDisplay}}">
-        <template is="tempCopyright" />
-      </view>
-    </view>
-  </view>
-  </scroll-view> -->
+  </scroll-view>
  </swiper-item>
  </swiper>
 </view>

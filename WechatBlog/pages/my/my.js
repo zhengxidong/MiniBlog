@@ -17,13 +17,13 @@ Page({
     showModalStatus: false,
     user_identity: user_identity,
     title_hint: '请填写',
-    logo: 'https://itellyou.site/WechatIMG12.jpeg'
+    logo: 'https://mini.itellyou.site/resources/WechatIMG12.jpeg'
   },
   onLoad: function () {
     console.log('onLoad')
     var that = this
-    var splashWave = 'https://itellyou.site/wave.png';
-    var splashLoading = 'https://itellyou.site/loading.gif';
+    var splashWave = 'https://mini.itellyou.site/resources/wave.png';
+    var splashLoading = 'https://mini.itellyou.site/resources/loading.gif';
     that.downLoadLogo()
     //更新数据
     that.setData({
@@ -38,7 +38,7 @@ Page({
       myXiaoxi: '',
       myXinde: '',
       myZan: '',
-      myArrowChart: 'https://itellyou.site/arrow_chart.png',
+      myArrowChart: 'https://mini.itellyou.site/resources/arrow_chart.png',
       //图片地址
       wave: splashWave,
       loading: splashLoading
