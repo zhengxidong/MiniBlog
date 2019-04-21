@@ -43,38 +43,42 @@ class ArticleController extends Controller
     //按分类获取文章列表
     public function articleList($cateId)
     {
-	if($cateId == 1)
-	{
-	  $articleList = Article::all();
-	}else {
+        if($cateId == 1)
+        {
+          $articleList = Article::all();
+        }else {
 
-	$articleList = DB::table('bg_article')
-	->leftJoin('bg_cate','bg_article.cate_id','=','bg_cate.cate_id')
-	->where('bg_article.article_status','=','open')
-	->orderBy('bg_article.id','desc')
-	->get();
-	}
+        $articleList = DB::table('bg_article')
+        ->leftJoin('bg_cate','bg_article.cate_id','=','bg_cate.cate_id')
+        ->where([['bg_article.article_status','open'],['bg_article.cate_id',$cateId]])
+        ->orderBy('bg_article.id','desc')
+        ->get();
+        }
 
-	$tempArticle = [];
-	//处理文章内容
-	foreach($articleList as $value){
+        //var_dump($articleList);
+        //exit;
+        $tempArticle = [];
+        //处理文章内容
+        foreach($articleList as $value){
 
-		$articleContent = $value['article_code'];
-		$newArticleContent = '';
-		if(!empty($value['article_code']))
-		{
+        //var_dump($value->article_code);
+        //exit;
+                $articleContent = $value->article_code;
+                $newArticleContent = '';
+                if(!empty($value->article_code))
+                {
 
-			$newArticleContent = preg_replace('#<div class="markdown-toc editormd-markdown-toc">\[TOC\]</div>#','',$value['article_code']);
-		}
+                        $newArticleContent = preg_replace('#<div class="markdown-toc editormd-markdown-toc">\[TOC\]</div>#','',$value->article_code);
+                }
 
-		$data = [
+                $data = [
 
-		  'articleId'      => $value['id'],
-		  'articleTitle'   => $value['article_title'],
-		  'articleContent' => (empty($newArticleContent)) ? $articleContent : $newArticleContent,
-		];
-		$tempArticle[] = $data;
-	}
+                  'articleId'      => $value->id,
+                  'articleTitle'   => $value->article_title,
+                  'articleContent' => (empty($newArticleContent)) ? $articleContent : $newArticleContent,
+                ];
+                $tempArticle[] = $data;
+        }
         return response()->json($tempArticle);
     }
     //获取文章详情
