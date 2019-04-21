@@ -110,7 +110,7 @@ Page({
     //2秒后解除加载
     setTimeout(function(){
       wx.hideLoading();
-    },1500);
+    },3000);
 
   },
   onShow: function () {
