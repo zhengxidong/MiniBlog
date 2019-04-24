@@ -43,21 +43,27 @@ class ArticleController extends Controller
     //按分类获取文章列表
     public function articleList($cateId)
     {
-        if($cateId == 1)
+	if($cateId == 1)
         {
-          $articleList = Article::all();
+
+        $articleList = DB::table('bg_article as a')
+        ->leftJoin('bg_cate as c','a.cate_id','=','c.cate_id')
+        ->select('a.id','a.article_title','a.article_code','a.comment_count','a.article_views','a.article_like','a.article_date')
+        ->where([['a.article_status','open']])
+        ->orderBy('a.id','desc')
+        ->get();
         }else {
 
-        $articleList = DB::table('bg_article')
-        ->leftJoin('bg_cate','bg_article.cate_id','=','bg_cate.cate_id')
-        ->where([['bg_article.article_status','open'],['bg_article.cate_id',$cateId]])
-        ->orderBy('bg_article.id','desc')
+        $articleList = DB::table('bg_article as a')
+        ->leftJoin('bg_cate as c','a.cate_id','=','c.cate_id')
+        ->select('a.id','a.article_title','a.article_code','a.comment_count','a.article_views','a.article_like','a.article_date')
+        ->where([['a.article_status','open'],['a.cate_id',$cateId]])
+        ->orderBy('a.id','desc')
         ->get();
         }
 
-        //var_dump($articleList);
-        //exit;
-        $tempArticle = [];
+
+	$tempArticle = [];
         //处理文章内容
         foreach($articleList as $value){
 
@@ -76,6 +82,10 @@ class ArticleController extends Controller
                   'articleId'      => $value->id,
                   'articleTitle'   => $value->article_title,
                   'articleContent' => (empty($newArticleContent)) ? $articleContent : $newArticleContent,
+                  'commentCount'   => $value->comment_count,
+                  'articleViews'   => $value->article_views,
+                  'articleLike'    => $value->article_like,
+                  'articleDate'    => date('Y-m-d',strtotime($value->article_date))
                 ];
                 $tempArticle[] = $data;
         }
@@ -85,14 +95,17 @@ class ArticleController extends Controller
     public function detail($articleId)
     {
 
-	$articleDetail = Article::find($articleId);
-	$articleContent = preg_replace('#<div class="markdown-toc editormd-markdown-toc">\[TOC\]</div>#','',$articleDetail['article_code']);
-	$newArticleDetail = [
-		'articleId'      => $articleDetail['id'],
+        $articleDetail = Article::find($articleId);
+        $articleContent = preg_replace('#<div class="markdown-toc editormd-markdown-toc">\[TOC\]</div>#','',$articleDetail['article_code']);
+        $newArticleDetail = [
+                'articleId'      => $articleDetail['id'],
                   'articleTitle'   => $articleDetail['article_title'],
                   'articleContent' => $articleContent,
-	];
-	return response()->json($newArticleDetail);
+                'commentCount'   => $articleDetail['comment_count'],
+                  'articleViews'   => $articleDetail['article_views'],
+                  'articleLike'    => $articleDetail['article_like'],
+                  'articleDate'    => date('Y-m-d',strtotime($articleDetail['article_date']))
+        ];
+        return response()->json($newArticleDetail);
     }
-
 }
