@@ -51,7 +51,7 @@
 /* 右上角音乐件 */
  .background_music{
   position: fixed;
-  top: 100rpx;
+  top: 106rpx;
   right: 0rpx;
   z-index: 10001;
   /* height: 100rpx; */

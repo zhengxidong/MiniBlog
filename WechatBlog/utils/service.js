@@ -1,6 +1,7 @@
 /**
  * 此文件管理项目所有接口
  */
+import config from './config';
 import { get, post, put, del } from './network';
 
 /**
@@ -11,11 +12,11 @@ import { get, post, put, del } from './network';
  */
 //export const API_SERVER_NAME = 'http://lumen.test.site:6060/api/v1';  //开发
 //export const API_SERVER_NAME = 'http://192.168.1.100:6060/api/v1';
-export const API_SERVER_NAME = 'https://mini.itellyou.site/api/v1';  //正式
+//export const API_SERVER_NAME = 'https://mini.itellyou.site/api/v1';  //正式
 /**
  * 获取文章列表
  */
 //export const getPhoto = (id) => get(`${API_SERVER_NAME}/photos/${id}`);
 
-export const getArticleBycateId = (cateId) => get(`${API_SERVER_NAME}/article/${cateId}`);
-export const getArticleDetailByArticleId = (articleId) => get(`${API_SERVER_NAME}/article/detail/${articleId}`);
+export const getArticleBycateId = (cateId) => get(`${config.getApiDomain}/article/${cateId}`);
+export const getArticleDetailByArticleId = (articleId) => get(`${config.getApiDomain}/article/detail/${articleId}`);

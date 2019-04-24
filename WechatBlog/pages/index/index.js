@@ -1,14 +1,14 @@
+import config from "../../utils/config";
 import { getArticleBycateId } from "../../utils/service";
 
-var host = 'https://mini.itellyou.site/resources/'
-var musicUrlArr = ['MoveYourBody.mp3', 'flames.mp3', 'pianai.mp3'];
+//随机播放音乐
+var randNumber = Math.round(Math.random() * (config.getMusicInitData.length - 1));
+//var musicUrl = config.getResourceDomain + '/'+ config.getMusicInitData[randNumber];
+var musicUrl = config.getMusicInitData[randNumber];
+console.log(musicUrl)
+//var musicUrl = '';
 
-//产生随机数
-var randNumber = Math.round(Math.random() * (musicUrlArr.length - 1));
-var musicUrl = host + musicUrlArr[randNumber];
-
-//获取音频上下文
-const backgroundAudioManager = wx.getBackgroundAudioManager();
+const backgroundAudioManager = wx.getBackgroundAudioManager();  //获取音频上下文
 
 Page({
   data: {
@@ -17,58 +17,8 @@ Page({
     initPlayingMusic: true, //默认页面加载播放音乐
     isPlayingMusic: false,
     music_url: musicUrl,    //音乐地址
-
     //初始化选项卡数据
-    menuList: [{         
-      name: "全部",
-      id:1
-    },{
-      name: "前端",
-      id: 2
-    }, {
-      name: "后端",
-      id: 3
-    }, {
-      name: "移动端",
-      id: 4
-    }, {
-      name: "服务器运维",
-      id: 5
-    }
-    ],
-    //初始化示例数据
-    // postsList: [
-    //   {
-    //     id: 0,
-    //     post_medium_image: 'test.png', //封面图片
-    //     title: {
-    //       rendered: 'test'             //标题
-    //     },
-    //     excerpt: {
-    //       rendered: '1233333333333333333333333333333333333333333333333333333333'              //简介内容
-    //     },
-    //     category_name: 'php',          //分类
-    //     date: '2018-08-08',            //日期
-    //     total_comments: 3,             //评论总数
-    //     pageviews: '3',                //浏览总数
-    //     like_count: 33                 //赞总数
-    //   },
-    //   {
-    //     id: 1,
-    //     post_medium_image: 'test.png',
-    //     title: {
-    //       rendered: 'test'
-    //     },
-    //     excerpt: {
-    //       rendered: '123'
-    //     },
-    //     category_name: 'git',
-    //     date: '2018-08-08',
-    //     total_comments: 3,
-    //     pageviews: '3',
-    //     like_count: 33
-    //   }
-    // ], 
+    menuList: config.getTabInitData,
     cateId:1,
     // 0 -64 0 64 128
     tabScroll: 0,
@@ -131,6 +81,9 @@ Page({
   },
   onReady: function () {
 
+  },
+  onHide: function (e) {
+    console.log(e)
   },
   //点击切换选项卡
   clickMenu: function (e) {

@@ -245,18 +245,19 @@ Page({
       var initData = {
         data: {
           arrticleTitle: data.articleTitle,
-          category_name: 'php',
-          pageviews: 4
+          //category_name: 'php',
+          articleViews: data.articleViews,
+          commentCount: data.commentCount,
+          articleLike: data.articleLike,
+          articleDate: data.articleDate
         }
       };
-      var _likeCount = 1;
       self.setData({
         detail: initData.data,
-        //detail: response.data,
-        likeCount: _likeCount,
-        detailDate: '2018',
-        total_comments: 3,
-        //postID: id,
+        likeCount: initData.data.articleLike,
+        detailDate: initData.data.articleDate,
+        total_comments: initData.data.commentCount,
+        //articleView: initData.data.articleView,
         display: 'block',
       });
     });

@@ -1,6 +1,8 @@
 <import src="../../templates/common-list.wxml" />
 <import src="../../templates/copyright.wxml" />
 
+
+
 <!-- <loading wx:if="{{showLoading}}">
 加载中...
 </loading> -->
@@ -54,9 +56,9 @@
   <view class="container">
     <view class="index-container">
       <template is="tempCommonList" data="{{postsList}}" />
-      <view class="loadingmore" style="display:{{floatDisplay}}">
+      <!-- <view class="loadingmore" style="display:{{floatDisplay}}">
         <view class="no-more" hidden="{{!isLastPage}}">- 无更多文章 -</view>
-      </view>
+      </view> -->
       <view class="copyright" style="display:{{floatDisplay}}">
         <template is="tempCopyright" />
       </view>

@@ -41,7 +41,8 @@ page {
 .common-list .list-item.has-img image.cover {
   display: block;
   width: 100%;
-  height: 300rpx;
+  /* height: 300rpx; */
+  height: 50rpx;
   border-radius: 8rpx;
 }
 

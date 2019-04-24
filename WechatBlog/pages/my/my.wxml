@@ -8,17 +8,37 @@
        <view class='my_layout'>
          <view class="btn_area">
       <!--制作流程  -->
-      <view class="base_info_view" bindtap="btnMyCreateInfo">
+      <!-- <view class="base_info_view" bindtap="btnMyCreateInfo">
         <text class="base_info_text">制作流程</text>
         <view class="base_info_right">
           <image class="base_info_right_img" src="{{myArrowChart}}"></image>
         </view>
-      </view>
+      </view> -->
          <!--细线  -->
-      <view class="line"> </view>
+      <!-- <view class="line"> </view> -->
       <!--我的制作  -->
-      <view class="base_info_view" bindtap="btnMyCreate">
+      <!-- <view class="base_info_view" bindtap="btnMyCreate">
         <text class="base_info_text">开始制作</text>
+        <view class="base_info_right">
+          <image class="base_info_right_img" src="{{myArrowChart}}"></image>
+        </view>
+      </view> -->
+
+      <!--细线  -->
+      <!-- <view class="line"> </view> -->
+      <!--常见问题  -->
+      <!-- <view class="base_info_view" bindtap="btnCommonQuestion">
+        <text class="base_info_text">项目简介</text>
+        <view class="base_info_right">
+          <image class="base_info_right_img" src="{{myArrowChart}}"></image>
+        </view>
+      </view> -->
+
+      <!--细线  -->
+      <view class="line"> </view>
+      <!--关于作者  -->
+      <view class="base_info_view" bindtap="btnAboutMy">
+        <text class="base_info_text">关于作者</text>
         <view class="base_info_right">
           <image class="base_info_right_img" src="{{myArrowChart}}"></image>
         </view>
@@ -26,33 +46,13 @@
 
       <!--细线  -->
       <view class="line"> </view>
-      <!--常见问题  -->
-      <view class="base_info_view" bindtap="btnCommonQuestion">
-        <text class="base_info_text">项目简介</text>
-        <view class="base_info_right">
-          <image class="base_info_right_img" src="{{myArrowChart}}"></image>
-        </view>
-      </view>
-
-         <!--细线  -->
-      <view class="line"> </view>
-      <!--关于我呀  -->
-      <view class="base_info_view" bindtap="btnAboutMy">
-        <text class="base_info_text">关于我呀</text>
-        <view class="base_info_right">
-          <image class="base_info_right_img" src="{{myArrowChart}}"></image>
-        </view>
-      </view>
-
-        <!--细线  -->
-      <view class="line"> </view>
       <!--分享好友  -->
-      <view class="base_info_view" bindtap="btnShareFriends">
+      <!-- <view class="base_info_view" bindtap="btnShareFriends">
         <text class="version_info_text">意见反馈</text>
         <view class="base_info_right">
           <image class="base_info_right_img" src="{{myArrowChart}}"></image>
         </view>
-      </view>
+      </view> -->
 
     </view>
        </view>
