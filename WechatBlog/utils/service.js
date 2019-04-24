@@ -9,12 +9,13 @@ import { get, post, put, del } from './network';
  * http://jsonplaceholder.typicode.com/
  * @type {string}
  */
-export const API_ROOT = 'http://lumen.test.site:6060/api/v1';
-//export const API_ROOT = 'http://192.168.1.100:6060/api/v1';
-
+//export const API_SERVER_NAME = 'http://lumen.test.site:6060/api/v1';  //开发
+//export const API_SERVER_NAME = 'http://192.168.1.100:6060/api/v1';
+export const API_SERVER_NAME = 'https://mini.itellyou.site/api/v1';  //正式
 /**
  * 获取文章列表
  */
-//export const getPhoto = (id) => get(`${API_ROOT}/photos/${id}`);
+//export const getPhoto = (id) => get(`${API_SERVER_NAME}/photos/${id}`);
 
-export const getArticleBycateId = (cateId) => get(`${API_ROOT}/article/${cateId}`);
+export const getArticleBycateId = (cateId) => get(`${API_SERVER_NAME}/article/${cateId}`);
+export const getArticleDetailByArticleId = (articleId) => get(`${API_SERVER_NAME}/article/detail/${articleId}`);

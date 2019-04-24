@@ -1,7 +1,7 @@
 <template name="tempCommonList">
   <view class="common-list">
     <block wx:key="id" wx:for="{{postsList}}">
-      <view class="list-item has-img" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+      <view class="list-item has-img" index="{{index}}" id="{{item.articleId}}" bindtap="redictDetail">
         <image src="{{item.post_medium_image}}" mode="aspectFill" class="cover"></image>
         <view class="content-title">
           <!-- <text>{{item.title.rendered}}</text> -->

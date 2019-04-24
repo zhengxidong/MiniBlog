@@ -14,7 +14,7 @@ Page({
     passwd: '',
     angle: 0,
     //logo: 'https://pengmaster.com/party/wechat/marry/gwtx_zip/HY2A1088.jpg'
-    logo: 'https://itellyou.site/WechatIMG12.jpeg'
+    logo: 'https://mini.itellyou.site/resources/WechatIMG12.jpeg'
     
   },
   onLoad: function (options) {
@@ -24,8 +24,8 @@ Page({
     // if (null != options)
     //   app.globalData.hostUserId = options.hostUserId
 
-    var splashWave = 'https://itellyou.site/wave.png';
-    var splashLoading = 'https://itellyou.site/loading.gif';
+    var splashWave = 'https://mini.itellyou.site/resources/wave.png';
+    var splashLoading = 'https://mini.itellyou.site/resources/loading.gif';
     //console.log(splashWave)
     that.setData({
       //图片地址

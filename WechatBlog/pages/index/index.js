@@ -1,25 +1,25 @@
 import { getArticleBycateId } from "../../utils/service";
 
-var host = 'https://www.itellyou.site/wx-mini/'
-var musicUrlArr = ['MoveYourBody.mp3', '49676.mp3', 'pianai.mp3'];
+var host = 'https://mini.itellyou.site/resources/'
+var musicUrlArr = ['MoveYourBody.mp3', 'flames.mp3', 'pianai.mp3'];
 
 //产生随机数
-var rand = Math.round(Math.random() * (musicUrlArr.length - 1));
-console.log('随机数：' + rand)
-var musicUrl = host + musicUrlArr[rand];
-console.log('随机音乐：' + musicUrl)
+var randNumber = Math.round(Math.random() * (musicUrlArr.length - 1));
+var musicUrl = host + musicUrlArr[randNumber];
+
 //获取音频上下文
 const backgroundAudioManager = wx.getBackgroundAudioManager();
 
-
 Page({
   data: {
-    showLoading: true,
+    //showLoading: true,    //设置loading加载
     // 音乐初始化配置
     initPlayingMusic: true, //默认页面加载播放音乐
     isPlayingMusic: false,
     music_url: musicUrl,    //音乐地址
-    menuList: [{
+
+    //初始化选项卡数据
+    menuList: [{         
       name: "全部",
       id:1
     },{
@@ -77,20 +77,16 @@ Page({
     windowWidth: ''
   },
   onLoad: function () {
-    
-
     var that = this
-    that.getArticleBycateId();
-
-    //console.log(e.detail.current)
-    // wx.showToast({
-    //   title: '加载中',
-    //   icon: 'loading',
-    //   mask: true
-    // });
-
     //加载数据
     console.log("onLoad")
+    wx.showLoading({
+      title: '加载中...',
+      mask:true
+    });
+    
+    that.getArticleListBycateId(1);  //默认获取全部文章数据
+
     wx.playBackgroundAudio({
       dataUrl: musicUrl,
       title: '',
@@ -100,10 +96,6 @@ Page({
     //监听音乐停止
     wx.onBackgroundAudioStop(function () {
       console.log('音乐已经停止')
-      // that.setData({
-      //   isPlayingMusic: false
-      // })
-      
     });
 
     wx.getSystemInfo({  // 获取当前设备的宽高，文档有
@@ -114,11 +106,11 @@ Page({
         })
       },
     });
-    
-    that.setData({
-      showLoading:false
-    });
-    //wx.hideToast();
+
+    //2秒后解除加载
+    setTimeout(function(){
+      wx.hideLoading();
+    },3000);
 
   },
   onShow: function () {
@@ -138,11 +130,9 @@ Page({
     
   },
   onReady: function () {
-    // wx.setNavigationBarTitle({ //修改标题文字
-    //   title: ''
-    // })
-    
+
   },
+  //点击切换选项卡
   clickMenu: function (e) {
     var current = e.currentTarget.dataset.current //获取当前tab的index
     var cateId = e.currentTarget.dataset.cateid   //获取分类id
@@ -157,37 +147,32 @@ Page({
       this.setData({ currentTab: current })
     }
   },
+  //切换选项卡
   changeContent: function (e) {
+
+    wx.showLoading({
+      title:'加载中',
+      mask:true
+    })
+
     var realCateIds = [1,2,3,4,5]; //真实的文章分类id值
     var current = e.detail.current // 获取当前内容所在index,文档有
-    console.log('当前菜单索引id:'+current)
-    console.log('匹配值:' + realCateIds[current])  
-    // wx.showLoading({
-    //   title: '加载中',
-    //   mask:true
-    // })
-    //console.log(this.data.windowWidth)
+    //console.log('当前菜单索引id:'+current)
+    //console.log('匹配值:' + realCateIds[current]) 
+    //console.log('切换获取数据')
+    var cateId = realCateIds[current];
+    this.getArticleListBycateId(cateId);
+
     var tabWidth = this.data.windowWidth / 5
-    //console.log(tabWidth)
-    //console.log(this.data.postsList)
-    //console.log(this.data.postsList[current])
-    // if (this.data.postsList[current] == 'undefined')
-    // {
-
-    // }
-    // else{
-    //   var neData = [this.data.postsList[current]];
-
-    // }
-    var tabScroll = (current - 2) * tabWidth
-    //console.log(tabScroll)
 
     this.setData({
-      //更新对应栏目的文章
-      //postsList: neData,
-      currentTab: current,
-      tabScroll: tabScroll
-    })
+        currentTab: current,
+        tabScroll: (current - 2) * tabWidth
+    });
+
+    setTimeout(function(){
+      wx.hideLoading();
+    },1500)
     
   },
   //播放音乐
@@ -215,12 +200,9 @@ Page({
       })
     }
   },
-  getArticleBycateId : function (){
-
-    getArticleBycateId(1).then(data => this.setData({ postsList: data }));;
-    //console.log(artocleList);
-    //wx.hideLoading();
-    
+  //按分类获取文章列表
+  getArticleListBycateId : function (id){
+    getArticleBycateId(id).then(data => this.setData({ postsList: data }));
   },
   // 跳转至查看文章详情
   redictDetail: function (e) {

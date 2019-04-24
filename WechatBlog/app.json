@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/zhuanti/zhuanti",
+    "pages/index/index",
     "pages/my/my",
     "pages/test/test",
     "pages/detail/detail"
@@ -20,7 +20,7 @@
     "list":[
       
       {
-        "pagePath": "pages/zhuanti/zhuanti",
+        "pagePath": "pages/index/index",
         "iconPath": "images/tab/ic_heart_normal.png",
         "selectedIconPath":"images/tab/ic_heart_select.png",
         "text":"专题"
