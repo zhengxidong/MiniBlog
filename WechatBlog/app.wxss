@@ -63,7 +63,8 @@ page {
   font-size: 30rpx;
   line-height: 1.4;
   font-weight: 400;
-  color: #fff;
+  /* color: #fff; */
+  color: #717171;
 }
 
 .common-list .list-item .content-date .cate{
@@ -105,6 +106,15 @@ page {
 
 /*common list end */
 
+.copyright {
+  font-size: 26rpx;
+  line-height: 1.6;
+  font-weight: 400;
+  text-align: center;
+  color: #c4c4c4;
+  margin-top: 48rpx;
+  padding-bottom: 80rpx;
+}
 
 /**towxml 基础风格样式**/
 @import '/towxml/style/main.wxss';

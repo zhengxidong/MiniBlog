@@ -3,8 +3,8 @@ import { getArticleBycateId } from "../../utils/service";
 
 //随机播放音乐
 var randNumber = Math.round(Math.random() * (config.getMusicInitData.length - 1));
-//var musicUrl = config.getResourceDomain + '/'+ config.getMusicInitData[randNumber];
-var musicUrl = config.getMusicInitData[randNumber];
+var musicUrl = config.getResourceDomain + '/'+ config.getMusicInitData[randNumber];
+//var musicUrl = config.getMusicInitData[randNumber];
 console.log(musicUrl)
 //var musicUrl = '';
 
@@ -12,6 +12,8 @@ const backgroundAudioManager = wx.getBackgroundAudioManager();  //获取音频�
 
 Page({
   data: {
+    floatDisplay:'none',   //
+    isLastPage:false,
     //showLoading: true,    //设置loading加载
     // 音乐初始化配置
     initPlayingMusic: true, //默认页面加载播放音乐
@@ -62,6 +64,10 @@ Page({
       wx.hideLoading();
     },3000);
 
+    that.setData({
+      floatDisplay: 'block',
+      isLastPage: true
+    })
   },
   onShow: function () {
     
@@ -80,10 +86,10 @@ Page({
     
   },
   onReady: function () {
-
+    
   },
-  onHide: function (e) {
-    console.log(e)
+  onHide: function () {
+
   },
   //点击切换选项卡
   clickMenu: function (e) {
@@ -113,6 +119,8 @@ Page({
     //console.log('当前菜单索引id:'+current)
     //console.log('匹配值:' + realCateIds[current]) 
     //console.log('切换获取数据')
+
+    
     var cateId = realCateIds[current];
     this.getArticleListBycateId(cateId);
 
@@ -125,7 +133,7 @@ Page({
 
     setTimeout(function(){
       wx.hideLoading();
-    },1500)
+    },1000)
     
   },
   //播放音乐
@@ -155,7 +163,48 @@ Page({
   },
   //按分类获取文章列表
   getArticleListBycateId : function (id){
-    getArticleBycateId(id).then(data => this.setData({ postsList: data }));
+    var that = this
+    //let timestamp = Date.parse(new Date());
+    //let isExists = false;
+    //从缓存中取数据,如果数据已过期，则重新获取数据
+    // const cacheData = wx.getStorageSync('resourcesList_' + id);
+
+    // if (cacheData)
+    // {
+    //   console.log(cacheData)
+
+    //   var timestampCache = cacheData.timestamp;
+
+    //   console.log('当前时间戳：' + timestamp)
+    //   console.log('缓存时间戳：' + timestampCache)
+    //   if (((timestamp - timestampCache) > 60) && timestampCache != 'undefined') {
+    //     console.log('没过期')
+    //     isExists = true
+    //     that.setData({
+    //       postsList: cacheData.data
+    //     });
+    //     //return true;
+    //   }
+    // }
+    
+    // console.log(isExists)
+    // if (!isExists){
+    //   console.log('已过期')
+      getArticleBycateId(id).then(data => {
+
+        //console.log('缓存id：' + id);
+        //缓存数据
+        // var temp = {
+        //   data: data,
+        //   timestamp: timestamp + 60
+        // };
+
+        //wx.setStorageSync('resourcesList_' + id,temp);
+
+        this.setData({ postsList: data })
+      });
+    //}
+    
   },
   // 跳转至查看文章详情
   redictDetail: function (e) {
@@ -165,5 +214,19 @@ Page({
     wx.navigateTo({
       url: url
     })
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '“' + 'www.itellyou.site' + '”网站微信小程序.技术支持：www.itellyou.site',
+      path: 'pages/index/index',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
+      }
+    }
   },
 })

@@ -40,7 +40,7 @@
  </block>
  </scroll-view>
  <!-- 页面 -->
- <swiper class="content" style='height: {{height}}px' duration="500" current="{{currentTab}}" bindchange="changeContent">
+ <swiper class="content" style='height: {{height}}px' circular="true" duration="1000" current="{{currentTab}}" bindchange="changeContent">
  <swiper-item class="content-item" wx:for="{{menuList}}" wx:key="index">
  
   <!-- 加载图文列表 -->
@@ -56,9 +56,9 @@
   <view class="container">
     <view class="index-container">
       <template is="tempCommonList" data="{{postsList}}" />
-      <!-- <view class="loadingmore" style="display:{{floatDisplay}}">
+      <view class="loadingmore" style="display:{{floatDisplay}}">
         <view class="no-more" hidden="{{!isLastPage}}">- 无更多文章 -</view>
-      </view> -->
+      </view>
       <view class="copyright" style="display:{{floatDisplay}}">
         <template is="tempCopyright" />
       </view>

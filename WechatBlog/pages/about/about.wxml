@@ -1,0 +1,50 @@
+<!-- <import src="../../wxParse/wxParse.wxml" /> -->
+<!-- <import src="../../templates/header.wxml" /> -->
+<import src="../../templates/copyright.wxml" />
+<!-- <import src="../../templates/login-popup.wxml" /> -->
+
+<view class="container" style="display:{{display}}">
+    <!-- <template is="tempHeader" /> -->
+
+    <view class="wrapper">
+        <view class="excerpt">
+            <!--  <rich-text nodes="{{pageData.content.rendered}}"></rich-text> -->
+            <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
+            其实本博客搭建已经很久了，关于我这个页面一直没来的及撰写，本人也没有很好的文笔，写不出长片大论。
+其实本小程序早已完成，一直忙于工作，没有时间将小程序发布。博主为什么想要去做这么一个东西，俗话说得好，好记性不如烂笔头，博主希望自己遇到的问题，及解决方法共享给大家，也借此可以记录自己的一些经验，日后倘若遇到相同的问题，可以快速的解决。
+本人博客访问量一直平平，却我一直坚持，只是想分享一些更好的编程技术和知识，哪怕部分文章不是我本人原创的，我坚信这种热爱分享的精神是可贵的。由于访问量较低，服务器也没有很大的压力，所以也不会在网站添加广告来补贴服务器的开支，估计未来一段时间都会没有广告的，毕竟是个人博客。
+现在已经很少有人坚持自己写博客，我相信这是一种情怀，更是一种不可磨灭的青春回忆，不管未来会怎么样，相信自己一定能坚持下去。
+一路走来，网络上也有很多帮我解决bug的朋友，因为网络，因为兴趣，我们相聚在一起，在此由衷的感谢！！
+我知道我做的不是最好的，但我一直再坚持，再成长，这才是最重要的。
+最后，感谢你！陌生人！如果觉得本人博客还不错，您可以常来看看。
+        </view>
+        <!-- <template is="login-popup" data="{{show: isLoginPopup, userInfo: userInfo}}"></template> -->
+     
+        <view style='text-align:center'>
+            <button class="gotowebpage-button" formType="submit" size="mini" bindtap="gotowebpage">打开“ITellYou博客”网站</button>
+            <modal title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel bindconfirm="confirm">{{dialog.content}}</modal>
+        </view>
+        <!-- <view class="praisePost">
+            <view style='text-align:center'>
+                <button class="praise-button" formType="submit" size="mini" bindtap="praise">捐赠</button>
+
+                <modal title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel bindconfirm="confirm">{{dialog.content}}</modal>
+            </view>
+            <view class="praiseTitle">
+                <view style='margin-top: 15rpx;'>
+                    <text>谢谢以下鼓励或捐赠的朋友</text>
+                </view>
+            </view>
+            <view class="praiseText">
+                <block wx:key="id" wx:for="{{praiseList}}">
+                    <image src="{{item}}" class="gravatarLikeImg"></image>
+                </block>
+            </view>
+        </view> -->
+    </view>
+   
+      <view class="copyright">
+        <template is="tempCopyright" />
+      </view>
+
+</view>

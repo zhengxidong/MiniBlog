@@ -563,3 +563,23 @@ input-holder {
   color: #ec5300;
   text-align: center;
 }
+
+ /* 分享好友按钮 */
+button::after {
+  border: none;
+}
+button {
+  background-color: #fff;
+  border-radius:0;
+  line-height:none;
+  padding: 0;
+  font-size:30rpx;
+  color: #717171;
+  margin-left: 80rpx;
+  margin-right: 0rpx;
+  width: 3000rpx;
+  text-align: left;
+}
+.btn_hover {
+  background-color: none;
+}

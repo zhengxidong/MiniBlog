@@ -228,7 +228,7 @@ Page({
       );
 
       articleData = app.towxml.initData(articleData, {
-        base: 'https://xxx.com/',    // 需要解析的内容中相对路径的资源`base`地址
+        base: 'https://itellyou.site',    // 需要解析的内容中相对路径的资源`base`地址
         app: self                     // 传入小程序页面的`this`对象，以用于音频播放器初始化
       });
 

@@ -1,3 +1,4 @@
+import config from "../../utils/config";
 //var api = require('../../api/api.js')
 //https://pengmaster.com/party/wechat/image/more/wave.png
 
@@ -14,7 +15,7 @@ Page({
     passwd: '',
     angle: 0,
     //logo: 'https://pengmaster.com/party/wechat/marry/gwtx_zip/HY2A1088.jpg'
-    logo: 'https://mini.itellyou.site/resources/WechatIMG12.jpeg'
+    logo: config.getResourceDomain + '/WechatIMG12.jpeg'
     
   },
   onLoad: function (options) {
@@ -24,8 +25,8 @@ Page({
     // if (null != options)
     //   app.globalData.hostUserId = options.hostUserId
 
-    var splashWave = 'https://mini.itellyou.site/resources/wave.png';
-    var splashLoading = 'https://mini.itellyou.site/resources/loading.gif';
+    var splashWave = config.getResourceDomain + '/wave.png';
+    var splashLoading = config.getResourceDomain + '/loading.gif';
     //console.log(splashWave)
     that.setData({
       //图片地址
